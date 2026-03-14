@@ -1,0 +1,47 @@
+-----------------------------
+| Core Domain Relationships |
+-----------------------------
+
+User
+ ├── has many Addresses
+ ├── has many Prescriptions
+ ├── has many Orders
+ └── has many SubstitutionConsents
+
+Prescription
+ ├── belongs to User
+ ├── has many PrescriptionItems
+ └── can be linked to Orders
+
+PrescriptionItem
+ ├── belongs to Prescription
+ └── references Medicine (requested)
+
+Medicine
+ ├── has many ChemistPrices
+ └── referenced in OrderItems
+
+Chemist
+ ├── has many ChemistPrices
+ └── fulfills Orders
+
+ChemistPrice
+ ├── belongs to Chemist
+ └── belongs to Medicine
+
+Order
+ ├── belongs to User
+ ├── belongs to Chemist
+ ├── has many OrderItems
+ └── has one Delivery
+
+OrderItem
+ ├── belongs to Order
+ └── belongs to Medicine
+
+SubstitutionConsent
+ ├── belongs to User
+ └── optionally linked to PrescriptionItem
+
+Delivery
+ └── belongs to Order

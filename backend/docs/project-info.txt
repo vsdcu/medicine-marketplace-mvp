@@ -1,0 +1,17 @@
+
+Role Strategy for project
+-------------------------
+customer
+    - upload prescription
+    - place order
+    - track delivery
+
+chemist
+    - view prescriptions
+    - quote medicine prices
+    - fulfill orders
+
+admin
+    - manage medicines
+    - manage chemists
+    - system operations
